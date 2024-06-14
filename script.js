@@ -8,12 +8,14 @@ function setCurrentDateTime() {
     document.getElementById("clock").innerHTML = now.getHours() + ":" + now.getMinutes();
 }
 
-/* Simplified from https://www.w3schools.com/howto/howto_js_draggable.asp */
+/* Modified function from https://www.w3schools.com/howto/howto_js_draggable.asp */
 function dragElement(element) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    document.getElementById(element.id + "-bar").onmousedown = dragMouseDown;
+    var paneBar = document.getElementById(element.id + "-bar");
+    paneBar.onmousedown = dragMouseDown;
 
     function dragMouseDown(e) {
+        paneBar.style.cursor = "grabbing";
         e.preventDefault();
         pos3 = e.clientX;
         pos4 = e.clientY;
@@ -32,6 +34,7 @@ function dragElement(element) {
     }
 
     function closeDragElement() {
+        paneBar.style.cursor = "grab";
         document.onmouseup = null;
         document.onmousemove = null;
     }
