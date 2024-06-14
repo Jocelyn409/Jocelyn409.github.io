@@ -11,6 +11,7 @@ html {
         flex-direction: column;
         margin: 0;
         padding: 0;
+        overflow: hidden;
     }
 
         header {
@@ -51,6 +52,7 @@ html {
             display: flex;
             flex-direction: row;
             height: 8%;
+            z-index: 9;
 
             background-color: rgb(165, 159, 159);
             border-top: 3px solid lightgray;
