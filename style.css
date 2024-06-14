@@ -1,5 +1,7 @@
 html, body {
     height: 100%;
+
+    font-family: 'W95FA', sans-serif;
 }
 
     body {
@@ -23,6 +25,8 @@ html, body {
 
         #pane {
             position: absolute;
+            top: 40px;
+            left: 40px;
             aspect-ratio: 3 / 2;
             width: 50%;
             height: auto;
@@ -49,7 +53,7 @@ html, body {
                 background-color: rgb(25, 255, 217);
             }
 
-                .pane-buttons {
+                .pane-button {
                     height: 70%;
                     aspect-ratio: 1 / 1;
                     text-align: center;
@@ -62,6 +66,8 @@ html, body {
                     background-color: lightgray;
                     color: black;
                     box-shadow: 2px 2px rgba(37, 37, 37, 0.766);
+                    text-shadow: 0.5px 0.5px rgb(0, 0, 0), 1.5px 0px rgb(0, 0, 0);
+                    font-size: 1.3vw;
                 }
 
                     #close-pane {

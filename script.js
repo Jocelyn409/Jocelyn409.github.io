@@ -8,6 +8,13 @@ function setCurrentDateTime() {
     document.getElementById("clock").innerHTML = now.getHours() + ":" + now.getMinutes();
 }
 
+function disableRightClick(event) {
+    if(event.button == 2) {
+        event.preventDefault();
+        return false;
+    }
+}
+
 /* Modified function from https://www.w3schools.com/howto/howto_js_draggable.asp */
 function dragElement(element) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
