@@ -23,27 +23,48 @@ html, body {
 
         #pane {
             position: absolute;
-            aspect-ratio: 3/2;
+            aspect-ratio: 3 / 2;
             width: 50%;
             height: auto;
             z-index: 5;
 
-            border-radius: 5px;
+            border-radius: 3px;
             background-color: rgb(158, 158, 223);
             border: 2px solid black;
-            box-shadow: 5px 5px #494747d7;
+            box-shadow: 5px 5px rgba(37, 36, 36, 0.782);
         }
 
             #pane-bar {
                 height: 6%;
+                display: flex;
+                align-items: center;
+                justify-content: end;
+                padding-right: 2px;
 
                 cursor: move;
                 border-bottom: inherit;
                 border-radius: inherit;
                 border-bottom-left-radius: 0px;
                 border-bottom-right-radius: 0px;
-                background-color: rgb(84, 197, 178);
+                background-color: rgb(25, 255, 217);
             }
+
+                .pane-buttons {
+                    height: 70%;
+                    aspect-ratio: 1 / 1;
+                    text-align: center;
+                    align-content: center;
+                    margin-right: 6px;
+
+                    border: 1px solid black;
+                    background-color: lightgray;
+                    color: black;
+                    box-shadow: 2px 2px rgba(37, 37, 37, 0.766);
+                }
+
+                    #close-pane {
+                        background-color: red;
+                    }
 
         #taskbar {
             display: flex;
@@ -51,13 +72,13 @@ html, body {
             height: 8%;
             z-index: 9 !important;
 
-            background-color: rgb(165, 159, 159);
-            border-top: 3px solid lightgray;
+            background-color: rgb(178, 171, 171);
+            border-top: 3px solid rgb(214, 212, 212);
             font-size: xx-large;
         }
 
             .taskbar-icon {
-                aspect-ratio: 1/1;
+                aspect-ratio: 1 / 1;
                 height: auto;
                 margin: 2px;
 
@@ -67,7 +88,7 @@ html, body {
 
             #clock {
                 align-content: center;
-                aspect-ratio: 1/1;
+                aspect-ratio: 1 / 1;
                 margin: 5px;
                 margin-left: auto;
                 text-align: center;
