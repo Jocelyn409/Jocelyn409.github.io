@@ -9,7 +9,6 @@ html {
     body {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         margin: 0;
         padding: 0;
     }
@@ -25,17 +24,40 @@ html {
             pointer-events: none;
         }
 
+        #pane {
+            aspect-ratio: 3/2;
+            width: 50%;
+            height: auto;
+            position: absolute;
+
+            border-radius: 5px;
+            background-color: rgb(158, 158, 223);
+            border: 2px solid black;
+            box-shadow: 5px 5px #494747d7;
+        }
+
+            #pane-bar {
+                height: 6%;
+
+                cursor: move;
+                border-bottom: inherit;
+                border-radius: inherit;
+                border-bottom-left-radius: 0px;
+                border-bottom-right-radius: 0px;
+                background-color: rgb(84, 197, 178);
+            }
+
         #taskbar {
             display: flex;
             flex-direction: row;
             height: 8%;
 
             background-color: rgb(165, 159, 159);
-            border-top: 2px solid lightgray;
+            border-top: 3px solid lightgray;
             font-size: xx-large;
         }
 
-            .taskbar_icon {
+            .taskbar-icon {
                 aspect-ratio: 1/1;
                 height: auto;
                 margin: 2px;
