@@ -41,8 +41,7 @@ html, body {
             #pane-bar {
                 height: 6%;
                 display: flex;
-                align-items: center;
-                justify-content: end;
+                justify-content: space-between;
                 padding-right: 2px;
 
                 cursor: grab;
@@ -54,7 +53,11 @@ html, body {
             }
 
                 #pane-bar > section {
-                    display: contents;
+                    height: 100%;
+                    min-width: 15%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: end;
                 }
 
                     .pane-button {
