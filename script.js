@@ -58,17 +58,33 @@ function dragElement(element) {
         element.style.left = (element.offsetLeft - pos1) + "px";
     }
 
-    function closeDragElement() {
-        paneBar.style.cursor = "grab";
-        if(parseInt(element.style.top) <= -1) {
-            element.style.top = "-1px";
-        }
-        var availableHeight = (window.innerHeight - document.getElementById("taskbar").offsetHeight);
+    function snapPane() {
+        var availableHeight = 
+            (document.getElementById("desktop").offsetHeight 
+            - document.getElementById("taskbar").offsetHeight);
         var paneBarHeight = document.getElementById("pane-bar").offsetHeight;
-        var maxHeight = availableHeight - paneBarHeight/2;
+        var maxHeight = availableHeight - paneBarHeight / 2;
         if(parseInt(element.style.top) >= maxHeight) {
             element.style.top = maxHeight + "px";
         }
+        else if(parseInt(element.style.top) <= -1) {
+            element.style.top = "-1px";
+        }
+
+        var screenWidth = document.getElementById("desktop").offsetWidth;
+        var paneWidth = document.getElementById("pane").offsetWidth;
+        var panePosition = document.getElementById("pane").style.left.split("px")[0];
+        if((screenWidth - panePosition) < paneWidth / 10) {
+            element.style.left = (screenWidth - (paneWidth / 10)) + "px";
+        }
+        else if(panePosition <= (paneWidth / 1.5) * -1) {
+            element.style.left = (paneWidth / 1.5) * -1 + "px";
+        }
+    }
+
+    function closeDragElement() {
+        paneBar.style.cursor = "grab";
+        snapPane();
         document.onmouseup = null;
         document.onmousemove = null;
     }
