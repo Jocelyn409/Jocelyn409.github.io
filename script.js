@@ -8,6 +8,24 @@ function setCurrentDateTime() {
     document.getElementById("clock").innerHTML = now.getHours() + ":" + now.getMinutes();
 }
 
+function minimizePane(event) {
+    document.getElementById(event.target.id)
+        .parentElement.parentElement.parentElement.style.display = "none";
+}
+
+function maximizePane(event) {
+    var pane = document.getElementById(event.target.id).parentElement.parentElement.parentElement;
+    pane.style.width = "100%";
+    pane.style.height = "94%";
+    pane.style.left = "-2px";
+    pane.style.top = "-2px";
+}
+
+function closePane(event) {
+    document.getElementById(event.target.id)
+        .parentElement.parentElement.parentElement.remove();
+}
+
 function disableRightClick(event) {
     if(event.button == 2) {
         event.preventDefault();
@@ -42,6 +60,15 @@ function dragElement(element) {
 
     function closeDragElement() {
         paneBar.style.cursor = "grab";
+        if(parseInt(element.style.top) <= -1) {
+            element.style.top = "-1px";
+        }
+        var availableHeight = (window.innerHeight - document.getElementById("taskbar").offsetHeight);
+        var paneBarHeight = document.getElementById("pane-bar").offsetHeight;
+        var maxHeight = availableHeight - paneBarHeight/2;
+        if(parseInt(element.style.top) >= maxHeight) {
+            element.style.top = maxHeight + "px";
+        }
         document.onmouseup = null;
         document.onmousemove = null;
     }
