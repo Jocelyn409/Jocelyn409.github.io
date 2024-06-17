@@ -1,6 +1,10 @@
 window.addEventListener("load", (event) => {
     setCurrentDateTime();
     dragElement(document.getElementById("pane"));
+    //var test = document.getElementById("pane").cloneNode(true)
+    //document.getElementById("test").appendChild(test);
+    // make the clone be called pane2? and then have everything that
+    // targets the original pane look at multiple objects instead
 });
 
 function setCurrentDateTime() {
@@ -9,12 +13,13 @@ function setCurrentDateTime() {
 }
 
 function minimizePane(event) {
-    document.getElementById(event.target.id)
-        .parentElement.parentElement.parentElement.style.display = "none";
+    var pane = document.getElementById(event.target.id).parentElement.parentElement.parentElement;
+    pane.classList.add("scale-out-center");
 }
 
 function maximizePane(event) {
     var pane = document.getElementById(event.target.id).parentElement.parentElement.parentElement;
+    //pane.classList.add("");
     pane.style.width = "100%";
     pane.style.height = "94%";
     pane.style.left = "-2px";
@@ -22,8 +27,11 @@ function maximizePane(event) {
 }
 
 function closePane(event) {
-    document.getElementById(event.target.id)
-        .parentElement.parentElement.parentElement.remove();
+    var pane = document.getElementById(event.target.id).parentElement.parentElement.parentElement;
+    pane.classList.add("fade-out");
+    setTimeout(() => {
+        pane.remove();
+    }, 151);
 }
 
 function disableRightClick(event) {
@@ -40,6 +48,11 @@ function dragElement(element) {
     paneBar.onmousedown = dragMouseDown;
 
     function dragMouseDown(e) {
+        for(child of document.getElementById("pane-buttons").children) {
+            if(e.target.id === child.id) {
+                return;
+            }
+        }
         paneBar.style.cursor = "grabbing";
         e.preventDefault();
         pos3 = e.clientX;
