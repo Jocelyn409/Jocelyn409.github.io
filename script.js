@@ -1,6 +1,6 @@
 window.addEventListener("load", (event) => {
     setCurrentDateTime();
-    dragElement(document.getElementById("pane"));
+    dragElement(document.getElementById("browser-pane"));
     //var test = document.getElementById("pane").cloneNode(true)
     //document.getElementById("test").appendChild(test);
     // make the clone be called pane2? and then have everything that
@@ -38,8 +38,8 @@ function closePane(event) {
 }
 
 function browserIconClick() {
-    if(document.getElementById("pane") != null) {
-        document.getElementById("pane").classList.remove("scale-out-center");
+    if(document.getElementById("browser-pane") != null) {
+        document.getElementById("browser-pane").classList.remove("scale-out-center");
     }
     else {
         closedBrowserPane.classList.remove("fade-out");
@@ -61,7 +61,7 @@ function dragElement(element) {
     paneBar.onmousedown = dragMouseDown;
 
     function dragMouseDown(e) {
-        for(child of document.getElementById("pane-buttons").children) {
+        for(child of document.getElementById(element.id + "-buttons").children) {
             if(e.target.id === child.id) {
                 return;
             }
@@ -88,7 +88,7 @@ function dragElement(element) {
         var availableHeight = 
             (document.getElementById("desktop").offsetHeight 
             - document.getElementById("taskbar").offsetHeight);
-        var paneBarHeight = document.getElementById("pane-bar").offsetHeight;
+        var paneBarHeight = paneBar.offsetHeight;
         var maxHeight = availableHeight - paneBarHeight / 2;
         if(parseInt(element.style.top) >= maxHeight) {
             element.style.top = maxHeight + "px";
@@ -98,8 +98,8 @@ function dragElement(element) {
         }
 
         var screenWidth = document.getElementById("desktop").offsetWidth;
-        var paneWidth = document.getElementById("pane").offsetWidth;
-        var panePosition = document.getElementById("pane").style.left.split("px")[0];
+        var paneWidth = document.getElementById(element.id).offsetWidth;
+        var panePosition = document.getElementById(element.id).style.left.split("px")[0];
         if((screenWidth - panePosition) < paneWidth / 10) {
             element.style.left = (screenWidth - (paneWidth / 10)) + "px";
         }
