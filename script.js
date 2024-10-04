@@ -5,6 +5,8 @@ window.addEventListener("load", (event) => {
     //document.getElementById("test").appendChild(test);
     // make the clone be called pane2? and then have everything that
     // targets the original pane look at multiple objects instead
+
+    var closedBrowserPane;
 });
 
 function setCurrentDateTime() {
@@ -28,10 +30,21 @@ function maximizePane(event) {
 
 function closePane(event) {
     var pane = document.getElementById(event.target.id).parentElement.parentElement.parentElement;
+    closedBrowserPane = pane;
     pane.classList.add("fade-out");
     setTimeout(() => {
         pane.remove();
     }, 151);
+}
+
+function browserIconClick() {
+    if(document.getElementById("pane") != null) {
+        document.getElementById("pane").classList.remove("scale-out-center");
+    }
+    else {
+        closedBrowserPane.classList.remove("fade-out");
+        document.getElementById("OS").appendChild(closedBrowserPane);
+    }
 }
 
 function disableRightClick(event) {

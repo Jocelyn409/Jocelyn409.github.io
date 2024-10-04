@@ -116,7 +116,7 @@ html, body {
                 }
 
                     #browser-icon {
-                        
+                        background-image: linear-gradient(to right, rgb(25, 255, 217), rgb(246, 193, 88), rgba(255, 0, 225, 0.632));
                     }
 
             #clock {
