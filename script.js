@@ -1,13 +1,24 @@
 window.addEventListener("load", (event) => {
     setCurrentDateTime();
-    dragElement(document.getElementById("browser-pane"));
-    //var test = document.getElementById("pane").cloneNode(true)
-    //document.getElementById("test").appendChild(test);
-    // make the clone be called pane2? and then have everything that
-    // targets the original pane look at multiple objects instead
+    
+    var panes = [];
+    panes.push(document.getElementById("browser-pane"), document.getElementById("folder-pane"));
 
-    var closedBrowserPane;
+    panes.forEach(pane => {
+        dragElement(pane);
+    });
+
+    var closedBrowserPane = null;
+    var closedFolderPane = null;
 });
+
+function bringToFront(event) {
+    panes.forEach(pane => {
+        pane.style.zIndex = 0;
+    })
+
+    document.getElementById(event.target.id).style.zIndex = 1;
+}
 
 function setCurrentDateTime() {
     const now = new Date();
@@ -21,7 +32,6 @@ function minimizePane(event) {
 
 function maximizePane(event) {
     var pane = document.getElementById(event.target.id).parentElement.parentElement.parentElement;
-    //pane.classList.add("");
     pane.style.width = "100%";
     pane.style.height = "94%";
     pane.style.left = "-2px";

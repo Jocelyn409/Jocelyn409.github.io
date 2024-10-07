@@ -9,13 +9,24 @@
     <body id="OS">
         <img id="desktop" src="background.jpg"></img>
 
-        <section id="browser-pane" class="pane" oncontextmenu="return false;">
+        <section id="browser-pane" class="pane" oncontextmenu="return false;" onclick="bringToFront(event)">
             <div id="browser-pane-bar" class="pane-bar">
                 <div id="browser-pane-name" class="pane-name">Neon Fox</div>
                 <section id="browser-pane-buttons" class="pane-buttons">
-                    <div id="minimize-pane" class="pane-button" onclick="minimizePane(event)">_</div>
-                    <div id="maximize-pane" class="pane-button" onclick="maximizePane(event)">O</div>
-                    <div id="close-pane" class="pane-button" onclick="closePane(event)">X</div>
+                    <div id="browser-minimize-pane" class="pane-button" onclick="minimizePane(event)">_</div>
+                    <div id="browser-maximize-pane" class="pane-button" onclick="maximizePane(event)">O</div>
+                    <div id="browser-close-pane" class="pane-button" onclick="closePane(event)">X</div>
+                </section>
+            </div>
+        </section>
+
+        <section id="folder-pane" class="pane" oncontextmenu="return false;" onclick="bringToFront(event)">
+            <div id="folder-pane-bar" class="pane-bar">
+                <div id="folder-pane-name" class="pane-name">Folder</div>
+                <section id="folder-pane-buttons" class="pane-buttons">
+                    <div id="folder-minimize-pane" class="pane-button folder-pane-button" onclick="minimizePane(event)">_</div>
+                    <div id="folder-maximize-pane" class="pane-button folder-pane-button" onclick="maximizePane(event)">O</div>
+                    <div id="folder-close-pane" class="pane-button folder-pane-button" onclick="closePane(event)">X</div>
                 </section>
             </div>
         </section>

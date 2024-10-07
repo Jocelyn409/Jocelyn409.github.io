@@ -24,7 +24,7 @@ html, body {
             top: 40px;
             left: 40px;
             aspect-ratio: 3 / 2;
-            width: 60%;
+            width: 45%;
             min-width: 250px !important;
             height: auto;
             min-height: 75px;
@@ -38,6 +38,10 @@ html, body {
             box-shadow: 5px 5px rgba(37, 36, 36, 0.484);
         }
 
+        #folder-pane {
+            background-color: #8d3017;
+        }
+
             .pane-bar {
                 height: 40px;
                 display: flex;
@@ -49,8 +53,15 @@ html, body {
                 border-radius: inherit;
                 border-bottom-left-radius: 0px;
                 border-bottom-right-radius: 0px;
+                }
+
+            #browser-pane-bar {
                 background-color: rgb(25, 255, 217);
                 background-image: linear-gradient(to right, rgb(25, 255, 217), rgb(246, 193, 88), rgba(255, 0, 225, 0.632));
+            }
+
+            #folder-pane-bar {
+                background-color: #d6c1b0;
             }
 
                 .pane-buttons {
@@ -77,6 +88,10 @@ html, body {
                         box-shadow: 2px 2px rgba(37, 37, 37, 0.766);
                         text-shadow: 0.5px 0.5px rgb(0, 0, 0), 1.5px 0px rgb(0, 0, 0);
                         font-size: x-large;
+                    }
+
+                    .folder-pane-button {
+                        background-color: #9b7759
                     }
 
                         .close-pane {
