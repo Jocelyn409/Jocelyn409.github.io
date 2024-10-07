@@ -1,22 +1,18 @@
+var panes = [];
+
 window.addEventListener("load", (event) => {
     setCurrentDateTime();
     
-    var panes = [];
     panes.push(document.getElementById("browser-pane"), document.getElementById("folder-pane"));
-
     panes.forEach(pane => {
         dragElement(pane);
     });
-
-    var closedBrowserPane = null;
-    var closedFolderPane = null;
 });
 
-function bringToFront(event) {
+function bringToFront(event) { // needs work
     panes.forEach(pane => {
         pane.style.zIndex = 0;
     })
-
     document.getElementById(event.target.id).style.zIndex = 1;
 }
 
@@ -40,7 +36,7 @@ function maximizePane(event) {
 
 function closePane(event) {
     var pane = document.getElementById(event.target.id).parentElement.parentElement.parentElement;
-    closedBrowserPane = pane;
+
     pane.classList.add("fade-out");
     setTimeout(() => {
         pane.remove();
@@ -52,6 +48,7 @@ function browserIconClick() {
         document.getElementById("browser-pane").classList.remove("scale-out-center");
     }
     else {
+        var closedBrowserPane = panes.at(0);
         closedBrowserPane.classList.remove("fade-out");
         document.getElementById("OS").appendChild(closedBrowserPane);
     }
