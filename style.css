@@ -21,8 +21,6 @@ html, body {
 
         .pane {
             position: absolute;
-            top: 40px;
-            left: 40px;
             aspect-ratio: 3 / 2;
             width: 45%;
             min-width: 250px !important;
@@ -39,7 +37,15 @@ html, body {
         }
 
         #folder-pane {
+            top: 200px;
+            left: 800px;
+
             background-color: #8d3017;
+        }
+
+        #browser-pane {
+            top: 45px;
+            left: 100px;
         }
 
             .pane-bar {
