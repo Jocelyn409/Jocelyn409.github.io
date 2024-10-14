@@ -9,11 +9,21 @@ window.addEventListener("load", (event) => {
     });
 });
 
-function bringToFront(event) { // needs work
+function bringToFront(event) {
     panes.forEach(pane => {
         pane.style.zIndex = 0;
-    })
-    document.getElementById(event.target.id).style.zIndex = 1;
+    });
+    let clickedElement = document.getElementById(event.target.id);
+    if(clickedElement.id.endsWith("-bar")) {
+        clickedElement = clickedElement.parentElement;
+    }
+    else if(clickedElement.id.endsWith("-name") || clickedElement.id.endsWith("-buttons")) {
+        clickedElement = clickedElement.parentElement.parentElement;
+    }
+    else if(clickedElement.classList.contains("pane-button")) {
+        clickedElement = clickedElement.parentElement.parentElement.parentElement;
+    }
+    clickedElement.style.zIndex = 1;
 }
 
 function setCurrentDateTime() {
